@@ -8,24 +8,23 @@ This project is an adapted fork of the Repository https://github.com/jovotech/sn
 
 ## Why Snips instead of NLP.js?
 
-This docker image allows you to run an open source [Snips NLU](https://github.com/snipsco/snips-nlu) server in your development environment. Snips comes with a number of advantages compared to NLP.js which is the default engine for Jovo.
+This docker image allows you to run an open source [Snips NLU](https://github.com/snipsco/snips-nlu) server right in your local development environment. Snips comes with a number of advantages compared to NLP.js which is the default engine for Jovo.
 
 This is why Voice-QL comes preconfigured to run with Snips instead of NLPjs.
 
-Voice-QL will automatically push changes in the languagew model to snips. To make this work it is important to keep ports as configured in this setting or adjust setting in Voice-QL and this Docker installation in sync.
+Voice-QL will automatically push changes in the language model to snips. To make this work it is important to keep ports as configured in this setting or adjust setting in Voice-QL and this Docker installation in sync.
 
 ## Quick Setup
 
     $ git clone https://github.com/fboerncke/voice-ql-snips-nlu-server.git
     $ cd voice-ql-snips-nlu-server
 
-Add the following line to Dockerfile to support 'de' models.
-
-    RUN snips-nlu download de
-
 Now build and run the service:
 
     $ sudo docker build -t snips-nlu-server .
+
+This may take some time and there is a lot of stuff happening on the console. Let it happen ...
+
     $ sudo docker run -p 5000:5000 snips-nlu-server
 
 On the console you should then see something like this:
